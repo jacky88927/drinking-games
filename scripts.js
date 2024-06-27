@@ -256,6 +256,24 @@ document.addEventListener('DOMContentLoaded', function() {
             recommended: true
         },
         {
+            id: 'game33',
+            title: '拍賣會 (十點半)',
+            description: `
+                <ol>
+                    <li>一人一張底牌（A~10分別為1~10點；J, Q, K為0.5點）</li>
+                    <li>桌上放人數n+1張牌做為拍賣品（玩家必須要湊到10點半才算勝利，因此需要決定是否買入拍賣品）</li>
+                    <li>如要拍賣，需喊出要喝出多少口，最多者可拿到拍賣品，並喝下喊出的量</li>
+                    <li>桌上的拍賣品售光或是無人拍賣即結算遊戲</li>
+                    <li>各自將底牌和拍賣品加起來結算並比大小，點數最少的人跟超出10點半的人要喝1杯，每當有人結算總數達到10點半就要多加一杯</li>
+                </ol>
+                <p>教學影片: <a href="https://www.instagram.com/west_ferryman_hsiang/reel/C21tZMqSnAj/" target="_blank">觀看教學影片</a></p>`,
+            category: 'no-prop',
+            ease: 2,
+            alcohol: 3,
+            players: '>2',
+            recommended: true
+        },
+        {
             id: 'game11',
             title: '比大小',
             description: `每人抽一張牌貼在額頭上，其他人看得到但自己看不到。
