@@ -23,6 +23,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const games = [
         {
+            id: 'game21',
+            title: '殘暴輪盤',
+            description: `玩家數任意，需要一顆骰子與六個公杯，並指定為1到6數字。
+            <br>骰到空杯則加酒至滿杯，若骰到有酒的則喝完該杯酒。
+            <br>喝完後繼續骰，直到骰到空杯加酒為止，然後換下一家。`,
+            category: 'dice',
+            ease: 1,
+            alcohol: 5,
+            players: '>2',
+            recommended: true
+        },
+        {
+            id: 'game31',
+            title: '倒楣三',
+            description: `一開始所有玩家都要丟骰子，只要有三就要當鬼，因此可能不只一個。
+            <br>接著正式開始後：
+            <ol>
+                兩顆骰子只要出現3,鬼就要喝。
+                <br>兩顆骰子只要點數加起來是3的倍數（3,6,9,12）,鬼又得喝。
+                <br>兩顆骰子是一對,擲中者可指定任何一人喝。
+                <br>骰到七上家喝。
+                <br>骰倒八下家喝。
+                <br>骰到九自己喝（是三的倍數鬼也要喝）。
+            </ol>
+            當不符合上述任何條件時換下一家丟（只有6 5及6 4及4 1），鬼也要丟。`,
+            category: 'dice',
+            ease: 3,
+            alcohol: 5,
+            players: '>3',
+            recommended: true
+        },
+        {
             id: 'game1',
             title: '殘暴七八九',
             description: `玩家數任意，需要兩顆骰子與一個公杯。
@@ -33,6 +65,31 @@ document.addEventListener('DOMContentLoaded', function() {
             alcohol: 4,
             players: '<8',
             recommended: true
+        },
+        {
+            id: 'game6',
+            title: '吹牛',
+            description: `每人一個骰盅和5個骰子。
+            <br>每個人搖骰盅後喊出一個數字，比如兩個三。如果對方不信，打開骰盅驗證。
+            <br>如果數量不足，喊的人輸；如果達到或超過，對方輸。
+            <br>下次喊數字的人數量要比前一個人多。`,
+            category: 'dice',
+            ease: 3,
+            alcohol: 2,
+            players: '2~6',
+            recommended: true
+        },
+        {
+            id: 'game17',
+            title: '九宮格',
+            description: `準備九個杯子和兩個骰子，骰到多少就在對應的杯子加酒。
+            <br>下一個人骰到的喝掉，如果連線三杯都要喝。
+            <br>骰到11和12當1，骰到10當2。`,
+            category: 'dice',
+            ease: 1,
+            alcohol: 4,
+            players: '2~8',
+            recommended: false
         },
         {
             id: 'game2',
@@ -48,113 +105,51 @@ document.addEventListener('DOMContentLoaded', function() {
             ease: 2,
             alcohol: 3,
             players: '<4',
-            recommended: true
+            recommended: false
         },
         {
-            id: 'game3',
-            title: '十五二十',
-            description: `兩人同時伸手出指（雙手能出的數字為0、5、10），口中喊一個數字（雙方出指數字之和，0、5、10、15、20）。
-            <br>如果喊的數字和實際出的手指數相同，就贏，輸的人罰喝酒。
-            <br>兩人都喊中就繼續。`,
-            category: 'no-prop',
-            ease: 2,
-            alcohol: 2,
-            players: 2,
-            recommended: true
-        },
-        {
-            id: 'game4',
-            title: '真心話和大冒險',
-            description: `通過猜拳或抽牌選出一個人，這個人要選擇「真心話」或「大冒險」。
-            <br>「真心話」可以讓任何一個人問任何問題，必須如實回答。
-            <br>「大冒險」則是接受在座其他人的指示去做一件事情，例如跟陌生人說話。`,
-            category: 'no-prop',
-            ease: 2,
-            alcohol: 3,
-            players: 3,
-            recommended: true
-        },
-        {
-            id: 'game5',
-            title: '數七',
-            description: `一群人從1開始輪流說數字，到7或7的倍數不能說出來，改為拍自己的大腿。
-            <br>如果說錯了就罰喝酒，然後重新開始數。`,
-            category: 'no-prop',
-            ease: 1,
-            alcohol: 2,
-            players: 4,
-            recommended: true
-        },
-        {
-            id: 'game6',
-            title: '吹牛',
-            description: `每人一個骰盅和5個骰子。
-            <br>每個人搖骰盅後喊出一個數字，比如兩個三。如果對方不信，打開骰盅驗證。
-            <br>如果數量不足，喊的人輸；如果達到或超過，對方輸。
-            <br>下次喊數字的人數量要比前一個人多。`,
+            id: 'game24',
+            title: '沒有一 (骰一)',
+            description: `1. 每位玩家五個骰子同時一起骰。
+            <br>2. 開牌看誰沒有骰到一。
+            <br>3. 沒有骰到一的玩家喝一口然後繼續骰。
+            <br>4. 骰到一的將其移出骰盅。
+            <br>5. 落後者骰到數量超過或是平手領先者。
+            <br>6. 最先骰到五個一的過關。
+            <br>7. 剩餘玩家繼續骰直到全部過關。`,
             category: 'dice',
-            ease: 3,
-            alcohol: 4,
-            players: 3,
-            recommended: true
+            ease: 1,
+            alcohol: 3,
+            players: '>2',
+            recommended: false
         },
         {
-            id: 'game7',
-            title: '划拳',
-            description: `兩人同時喊一個數字（0到10），並伸出一隻手（0到5）。
-            <br>如果喊的數字和兩人的手指數相加相同，對方罰喝酒。
-            <br>兩人都喊中就算平手，繼續再划。`,
-            category: 'no-prop',
+            id: 'game23',
+            title: '骰子終極密碼',
+            description: `1. 準備一個骰盅與五顆骰子，骰子數可以依照節奏增加。
+            <br>2. 莊家晃動骰盅後遊戲開始（點數只有莊家能看）。
+            <br>3. 由莊家開始，起始數字為骰子數量，最少喊一個數字，最多可喊三個數字。
+            <br>4. 玩家自覺快喊到骰子總和時，可使用迴轉或Pass（兩者擇一）。
+            <br>5. 莊家因知道骰子總和，故不可使用迴轉或Pass。
+            <br>6. 直到有玩家喊過骰子總和，即為輸家（莊家抓錯也輸）。
+            <br>7. 喝酒單位由上一場輸家制定。`,
+            category: 'dice',
             ease: 2,
             alcohol: 3,
-            players: 2,
-            recommended: true
+            players: '>3',
+            recommended: false
         },
         {
-            id: 'game8',
-            title: '庫克船長',
-            description: `類似於007遊戲。一人喊「庫」並指定另一人，該人喊「克」再指定第三人，第三人喊「船」，再指第四人。
-            <br>第四人喊「長」並再指定一人。最後被指定的人模仿拉汽笛的動作，旁邊兩人模仿划船的動作。
-            <br>出錯的人罰酒。`,
-            category: 'no-prop',
-            ease: 3,
-            alcohol: 3,
-            players: 4,
-            recommended: true
-        },
-        {
-            id: 'game9',
-            title: '吸星大法',
-            description: `男女交替坐成一圈，用嘴吸住一張撲克牌並傳給下一個人。
-            <br>牌掉了的人罰酒。可以跨越多個人傳牌，只要不掉就可以。`,
-            category: 'no-prop',
-            ease: 2,
-            alcohol: 4,
-            players: 5,
-            recommended: true
-        },
-        {
-            id: 'game10',
-            title: '撕紙',
-            description: `每人撕一長條餐巾紙，含在嘴裡並撕下一段傳給下一個人。
-            <br>接牌時，前一人嘴裡必須留有紙。
-            <br>撕到最後紙會越來越少，放棄的罰兩次，嘗試沒成功的罰一次。`,
-            category: 'no-prop',
-            ease: 3,
-            alcohol: 3,
-            players: 3,
-            recommended: true
-        },
-        {
-            id: 'game11',
-            title: '比大小',
-            description: `每人抽一張牌貼在額頭上，其他人看得到但自己看不到。
-            <br>每人依次問旁邊的人：「你覺得我需要換嗎？」
-            <br>可以選擇換牌或保持原樣，最後揭曉時，點數最小的人輸。`,
+            id: 'game27',
+            title: '九宮格射龍門',
+            description: `1. 在桌上明放九張撲克牌。
+            <br>2. 翻牌的人決定要玩哪一題，並選擇要比題目的牌面大還是小。
+            <br>3. 如果猜對，就可以換人或繼續。
+            <br>4. 如果撞柱（跟牌面相同），就 Double 該題現在牌數的數量。`,
             category: 'card',
-            ease: 3,
-            alcohol: 3,
-            players: 4,
+            ease: 2,
+            alcohol: 4,
+            players: '2~6',
             recommended: true
         },
         {
@@ -172,65 +167,8 @@ document.addEventListener('DOMContentLoaded', function() {
             recommended: true
         },
         {
-            id: 'game13',
-            title: '傳牙籤',
-            description: `每人抽一張撲克牌，按順序坐好，持最小（或最大）牌的人開始，用嘴銜住牙籤傳給下一個人。
-            <br>不許掉落，也不能用手或其他工具幫忙。
-            <br>掉了的人罰酒。傳完一圈後將牙籤撅一半，繼續抽牌並重複遊戲。`,
-            category: 'no-prop',
-            ease: 2,
-            alcohol: 3,
-            players: 4,
-            recommended: true
-        },
-        {
-            id: 'game14',
-            title: '國王遊戲',
-            description: `準備多張牌，其中一張寫著「國王」，其他編號1、2、3等。
-            <br>每人抽一張牌，抽到「國王」的人可以指定幾號做某事，例如互相打架或接吻。`,
-            category: 'card',
-            ease: 3,
-            alcohol: 4,
-            players: 4,
-            recommended: true
-        },
-        {
-            id: 'game15',
-            title: '我愛你VS不要臉',
-            description: `眾人圍坐成一圈，規定只能對左邊的人說「我愛你」，對右邊的人說「不要臉」。
-            <br>兩人之間只能連續對話3次。一旦有人說錯，即受罰。`,
-            category: 'no-prop',
-            ease: 2,
-            alcohol: 3,
-            players: 4,
-            recommended: true
-        },
-        {
-            id: 'game16',
-            title: '大小西瓜',
-            description: `這遊戲要求在口喊「大西瓜」的同時，手上比劃出「小西瓜」的輪廓；反之亦然。
-            <br>說錯的人罰酒。`,
-            category: 'no-prop',
-            ease: 2,
-            alcohol: 3,
-            players: 4,
-            recommended: true
-        },
-        {
-            id: 'game17',
-            title: '九宮格',
-            description: `準備九個杯子和兩個骰子，骰到多少就在對應的杯子加酒。
-            <br>下一個人骰到的喝掉，如果連線三杯都要喝。
-            <br>骰到11和12當1，骰到10當2。`,
-            category: 'dice',
-            ease: 3,
-            alcohol: 4,
-            players: 4,
-            recommended: true
-        },
-        {
             id: 'game18',
-            title: 'Roy’s Game',
+            title: '陪酒員',
             description: `1. 喝酒單位數量可於遊戲開始前討論。
             <br>2. 不可說任何形式的髒話。
             <br>3. 抽到5、8、Q這三張牌，執行時間由抽到後至下一位玩家抽到同樣卡時停止。
@@ -241,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <br>A = 喝一單位
             <br>2 = 喝兩單位
             <br>3 = 喝三單位
-            <br>4 = 迴轉
+            <br>4 = 陪酒員
             <br>5 = 制定遊戲規則
             <br>6 = 接龍遊戲（以廣泛主題為題目）
             <br>7 = 廁所牌（可交易）
@@ -252,9 +190,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <br>Q = 抽到此牌的玩家做出明顯動作時，最後跟到的喝一單位
             <br>K = 全部玩家喝一單位`,
             category: 'card',
-            ease: 3,
-            alcohol: 4,
-            players: 4,
+            ease: 4,
+            alcohol: 3,
+            players: '>4',
             recommended: true
         },
         {
@@ -266,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <br>3. 31點為上限，超過31點遊戲結束，無法出牌者為輸家。
             <br>4. 輸家基本底注為兩單位。
             <br>5. 出牌順序為順時鐘。
-            <br>進階規則：
+            <br><br>進階規則：
             <br>1. 若手牌可以即時湊成10、20、30的整數，則可以發動「搶牌」。
             <br>2. 搶牌不限制出牌順序，先放到場中牌推的為主，每搶到一次加一單位。
             <br>3. 順向下一家搶牌或自己搶自己牌不加單位。
@@ -280,8 +218,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <br>單場最多單位：底注兩單位 + 搶10一單位 + 搶20一單位 + 搶30一單位 + 不買保險或亂問保險一單位 = 六單位。`,
             category: 'card',
             ease: 3,
-            alcohol: 4,
-            players: 4,
+            alcohol: 3,
+            players: '3~6',
             recommended: true
         },
         {
@@ -300,19 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
             category: 'card',
             ease: 3,
             alcohol: 4,
-            players: 4,
-            recommended: true
-        },
-        {
-            id: 'game21',
-            title: '殘暴輪盤',
-            description: `玩家數任意，需要一顆骰子與六個公杯，並指定為1到6數字。
-            <br>骰到空杯則加酒至滿杯，若骰到有酒的則喝完該杯酒。
-            <br>喝完後繼續骰，直到骰到空杯加酒為止，然後換下一家。`,
-            category: 'dice',
-            ease: 2,
-            alcohol: 3,
-            players: 6,
+            players: '>3',
             recommended: true
         },
         {
@@ -326,40 +252,31 @@ document.addEventListener('DOMContentLoaded', function() {
             category: 'card',
             ease: 2,
             alcohol: 3,
-            players: 4,
+            players: '2~6',
             recommended: true
         },
         {
-            id: 'game23',
-            title: '骰子終極密碼',
-            description: `1. 準備一個骰盅與五顆骰子，骰子數可以依照節奏增加。
-            <br>2. 莊家晃動骰盅後遊戲開始（點數只有莊家能看）。
-            <br>3. 由莊家開始，起始數字為骰子數量，最少喊一個數字，最多可喊三個數字。
-            <br>4. 玩家自覺快喊到骰子總和時，可使用迴轉或Pass（兩者擇一）。
-            <br>5. 莊家因知道骰子總和，故不可使用迴轉或Pass。
-            <br>6. 直到有玩家喊過骰子總和，即為輸家（莊家抓錯也輸）。
-            <br>7. 喝酒單位由上一場輸家制定。`,
-            category: 'dice',
-            ease: 3,
-            alcohol: 4,
-            players: 5,
-            recommended: true
+            id: 'game11',
+            title: '比大小',
+            description: `每人抽一張牌貼在額頭上，其他人看得到但自己看不到。
+            <br>每人依次問旁邊的人：「你覺得我需要換嗎？」
+            <br>可以選擇換牌或保持原樣，最後揭曉時，點數最小的人輸。`,
+            category: 'card',
+            ease: 1,
+            alcohol: 1,
+            players: '>3',
+            recommended: false
         },
         {
-            id: 'game24',
-            title: '沒有一 (骰一)',
-            description: `1. 每位玩家五個骰子同時一起骰。
-            <br>2. 開牌看誰沒有骰到一。
-            <br>3. 沒有骰到一的玩家喝一口然後繼續骰。
-            <br>4. 骰到一的將其移出骰盅。
-            <br>5. 落後者骰到數量超過或是平手領先者。
-            <br>6. 最先骰到五個一的過關。
-            <br>7. 剩餘玩家繼續骰直到全部過關。`,
-            category: 'dice',
+            id: 'game14',
+            title: '國王遊戲',
+            description: `準備多張牌，其中一張寫著「國王」，其他編號1、2、3等。
+            <br>每人抽一張牌，抽到「國王」的人可以指定幾號喝酒。`,
+            category: 'card',
             ease: 2,
-            alcohol: 3,
-            players: 5,
-            recommended: true
+            alcohol: 2,
+            players: '>3',
+            recommended: false
         },
         {
             id: 'game25',
@@ -372,8 +289,59 @@ document.addEventListener('DOMContentLoaded', function() {
             category: 'no-prop',
             ease: 1,
             alcohol: 3,
-            players: 4,
+            players: '>3',
             recommended: true
+        },
+        {
+            id: 'game3',
+            title: '十五二十',
+            description: `兩人同時伸手出指（雙手能出的數字為0、5、10），口中喊一個數字（雙方出指數字之和，0、5、10、15、20）。
+            <br>如果喊的數字和實際出的手指數相同，就贏，輸的人罰喝酒。
+            <br>兩人都喊中就繼續。`,
+            category: 'no-prop',
+            ease: 2,
+            alcohol: 2,
+            players: 2,
+            recommended: false
+        },
+        {
+            id: 'game30',
+            title: '十五二十-多人',
+            description: `
+                         1. 每個人同時伸出一隻手，能出的數字只有0或5。<br> 
+                         2. 每回合有一個莊家，莊家喊一個數字，這個數字應該是所有玩家伸出手指數的總和，可能的數字包括0、5、10、15、20。<br>
+                         3. 如果莊家喊的數字和實際出的手指數相同，莊家的下一個人喝酒。<br> 
+                         4. 如果莊家連續喊中兩次，則莊家的上下兩個人都要喝酒。<br>
+                         5. 如果莊家連續喊中三次，則除了莊家以外的所有人都要喝酒。<br>
+                         6. 如果莊家沒有喊中，則下一個人當莊家，遊戲繼續。`,
+            category: 'no-prop',
+            ease: 2,
+            alcohol: 2,
+            players: '>2',
+            recommended: false
+        },
+        {
+            id: 'game4',
+            title: '真心話和大冒險',
+            description: `通過猜拳或抽牌選出一個人，這個人要選擇「真心話」或「大冒險」。
+            <br>「真心話」可以讓任何一個人問任何問題，必須如實回答。
+            <br>「大冒險」則是接受在座其他人的指示去做一件事情。`,
+            category: 'no-prop',
+            ease: 2,
+            alcohol: 3,
+            players: '3~8',
+            recommended: false
+        },
+        {
+            id: 'game5',
+            title: '數三',
+            description: `一群人從1開始輪流說數字，數到有3的數字或3的倍數不能說出來，改為拍手。
+            <br>如果說錯了就罰喝酒，然後重新開始數。`,
+            category: 'no-prop',
+            ease: 1,
+            alcohol: 2,
+            players: '>4',
+            recommended: false
         },
         {
             id: 'game26',
@@ -385,23 +353,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <br><br>舉例：<br>全部有四樓 -> 一樓上四樓 -> 四樓下二樓 -> 二樓上三樓 -> 三樓上五樓（罰一杯，因為沒有五樓）。`,
             category: 'no-prop',
             ease: 2,
-            alcohol: 3,
-            players: 4,
-            recommended: true
+            alcohol: 2,
+            players: '>4',
+            recommended: false
         },
-        {
-            id: 'game27',
-            title: '九宮格射龍門',
-            description: `1. 在桌上明放九張撲克牌。
-            <br>2. 翻牌的人決定要玩哪一題，並選擇要比題目的牌面大還是小。
-            <br>3. 如果猜對，就可以換人或繼續。
-            <br>4. 如果撞柱（跟牌面相同），就 Double 該題現在牌數的數量。`,
-            category: 'card',
-            ease: 3,
-            alcohol: 4,
-            players: 4,
-            recommended: true
-        },
+        
         {
             id: 'game28',
             title: '烏龜烏龜翹',
@@ -409,8 +365,8 @@ document.addEventListener('DOMContentLoaded', function() {
             category: 'no-prop',
             ease: 1,
             alcohol: 3,
-            players: 4,
-            recommended: true
+            players: 2,
+            recommended: false
         },
         {
             id: 'game29',
@@ -422,9 +378,90 @@ document.addEventListener('DOMContentLoaded', function() {
             <br>5. 第一個將所有牌出完的玩家獲勝，其餘玩家繼續，直到剩下最後一個人。
             <br>6. 最後一個人為輸家，需罰喝一杯。`,
             category: 'card',
+            ease: 1,
+            alcohol: 2,
+            players: '>2',
+            recommended: false
+        },
+        {
+            id: 'game7',
+            title: '划拳',
+            description: `兩人同時喊一個數字（0到10），並伸出一隻手（0到5）。
+            <br>如果喊的數字和兩人的手指數相加相同，對方罰喝酒。
+            <br>兩人都喊中就算平手，繼續再划。`,
+            category: 'no-prop',
             ease: 2,
             alcohol: 3,
-            players: 4,
+            players: 2,
+            recommended: false
+        },
+        {
+            id: 'game13',
+            title: '傳牙籤',
+            description: `每人抽一張撲克牌，按順序坐好，持最小（或最大）牌的人開始，用嘴銜住牙籤傳給下一個人。
+            <br>不許掉落，也不能用手或其他工具幫忙。
+            <br>掉了的人罰酒。傳完一圈後將牙籤撅一半，繼續抽牌並重複遊戲。`,
+            category: 'no-prop',
+            ease: 1,
+            alcohol: 2,
+            players: '>3',
+            recommended: false
+        },
+        {
+            id: 'game15',
+            title: '我愛你VS不要臉',
+            description: `眾人圍坐成一圈，規定只能對左邊的人說「我愛你」，對右邊的人說「不要臉」。
+            <br>兩人之間只能連續對話3次。一旦有人說錯，即受罰。`,
+            category: 'no-prop',
+            ease: 2,
+            alcohol: 2,
+            players: '>4',
+            recommended: false
+        },
+        {
+            id: 'game16',
+            title: '大小西瓜',
+            description: `這遊戲要求在口喊「大西瓜」的同時，手上比劃出「小西瓜」的輪廓；反之亦然。
+            <br>說錯的人罰酒。`,
+            category: 'no-prop',
+            ease: 2,
+            alcohol: 2,
+            players: '>4',
+            recommended: false
+        },
+        {
+            id: 'game10',
+            title: '撕紙',
+            description: `每人撕一長條餐巾紙，含在嘴裡並撕下一段傳給下一個人。
+            <br>接牌時，前一人嘴裡必須留有紙。
+            <br>撕到最後紙會越來越少，放棄的罰兩次，嘗試沒成功的罰一次。`,
+            category: 'no-prop',
+            ease: 1,
+            alcohol: 2,
+            players: '>3',
+            recommended: false
+        },
+        {
+            id: 'game9',
+            title: '吸星大法',
+            description: `男女交替坐成一圈，用嘴吸住一張撲克牌並傳給下一個人。
+            <br>牌掉了的人罰酒。可以跨越多個人傳牌，只要不掉就可以。`,
+            category: 'no-prop',
+            ease: 1,
+            alcohol: 2,
+            players: '>3',
+            recommended: false
+        },
+        {
+            id: 'game8',
+            title: '庫克船長',
+            description: `類似於007遊戲。一人喊「庫」並指定另一人，該人喊「克」再指定第三人，第三人喊「船」，再指第四人。
+            <br>第四人喊「長」並再指定一人。最後被指定的人模仿拉汽笛的動作，旁邊兩人模仿划船的動作。
+            <br>出錯的人罰酒。`,
+            category: 'no-prop',
+            ease: 3,
+            alcohol: 3,
+            players: '>4',
             recommended: false
         }
     ];
