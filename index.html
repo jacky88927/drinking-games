@@ -10,14 +10,21 @@
 <body>
     <header>
         <h1>喝酒遊戲</h1>
-        <p>超過30種熱門的聚會喝酒遊戲! </p>
+        <p>超過30種熱門的聚會喝酒遊戲!</p>
     </header>
     <main>
+        <div id="filter-buttons" class="filter-buttons">
+            <button class="filter-btn" onclick="filterGames('all')">所有遊戲</button>
+            <button class="filter-btn" onclick="filterGames('dice')">骰子遊戲</button>
+            <button class="filter-btn" onclick="filterGames('card')">撲克牌遊戲</button>
+            <button class="filter-btn" onclick="filterGames('no-prop')">不用道具遊戲</button>
+            <button class="filter-btn" onclick="filterGames('quick-drinking')">快速喝酒</button>
+        </div>
         <div id="dice-roller">
             <h2>骰子模擬器</h2>
             <label for="dice-count">選擇骰子數量：</label>
             <input type="number" id="dice-count" value="1" min="1" max="10">
-            <button id="roll-dice">丟骰子</button>
+            <button id="roll-dice" class="filter-btn">丟骰子</button>
             <div id="dice-results"></div>
         </div>
         <section>

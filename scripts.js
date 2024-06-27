@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
             category: 'dice',
             ease: 3,
             alcohol: 2,
-            players: '2~6',
+            players: '<6',
             recommended: true
         },
         {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
             category: 'dice',
             ease: 1,
             alcohol: 4,
-            players: '2~8',
+            players: '<8',
             recommended: false
         },
         {
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
             category: 'card',
             ease: 2,
             alcohol: 4,
-            players: '2~6',
+            players: '<6',
             recommended: true
         },
         {
@@ -463,7 +463,23 @@ document.addEventListener('DOMContentLoaded', function() {
             alcohol: 3,
             players: '>4',
             recommended: false
-        }
+        },
+        {
+            id: 'game32',
+            title: '沉船遊戲',
+            description: `沉船遊戲因為可以加入不同酒種到酒裡，所以你可以選擇混酒形式或是類似於燒啤、野格炸彈這樣的調酒類型去玩。<br>
+            <strong>遊戲規則：</strong>
+            <ol>
+                <li>準備一大一小的酒杯，大酒杯倒入2/3的任意酒類。</li>
+                <li>再將小酒杯放到大酒杯中，玩家開始輪流倒酒到小杯子中，倒多少都可以，最後讓小酒杯翻倒或是沉下去的就輸了！懲罰就要整杯酒一起喝下去！</li>
+            </ol>`,
+            category: 'no-prop',
+            ease: 1,
+            alcohol: 5,
+            players: '>2',
+            recommended: false
+        },
+        
     ];
 
     const diceGames = document.getElementById('dice-games');
@@ -489,10 +505,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const gameSection = document.createElement('section');
         gameSection.id = game.id;
-        
+
         // 如果推薦，添加星號
         const star = game.recommended ? '<span class="recommended-star">★</span>' : '';
-        
+
         gameSection.innerHTML = `
             <h2>${star}${game.title}</h2>
             <div class="game-ratings">
@@ -504,4 +520,36 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         gameDetails.appendChild(gameSection);
     });
+
+    window.filterGames = function(category) {
+        const allGames = document.querySelectorAll('#dice-games li, #card-games li, #no-prop-games li');
+        const allSections = document.querySelectorAll('#game-details section');
+
+        allGames.forEach(game => {
+            game.style.display = 'none';
+        });
+
+        allSections.forEach(section => {
+            section.style.display = 'none';
+        });
+
+        if (category === 'all') {
+            allGames.forEach(game => {
+                game.style.display = 'block';
+            });
+            allSections.forEach(section => {
+                section.style.display = 'block';
+            });
+        } else {
+            games.forEach(game => {
+                if (game.category === category || (category === 'quick-drinking' && game.alcohol > 3)) {
+                    const gameLink = document.querySelector(`#${game.category}-games li a[href="#${game.id}"]`);
+                    if (gameLink) {
+                        gameLink.parentElement.style.display = 'block';
+                        document.getElementById(game.id).style.display = 'block';
+                    }
+                }
+            });
+        }
+    };
 });
