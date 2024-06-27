@@ -4,19 +4,44 @@ document.addEventListener('DOMContentLoaded', function() {
             id: 'game1',
             title: '殘暴七八九',
             description: '玩家數任意，需要兩顆骰子與一個公杯。骰到7加酒，骰到8喝半杯，骰到9喝整杯，骰到兩個1指定玩家喝完，骰到Pair迴轉，有喝到酒的玩家要繼續骰(骰到8、9)，直到沒喝酒才換下一家。',
-            category: 'dice'
+            category: 'dice',
+            ease: 1,
+            alcohol: 4,
+            players: '<8',
+            recommended: true
         },
         {
             id: 'game2',
             title: '殘暴三百五',
             description: '玩家數任意，需要七顆骰子與一個公杯。數字1代表100點，數字5代表50點，有骰到就將該點數拿出後繼續骰(可選擇拿或不拿，至少要拿一顆)，每一骰一次最少都要有1或5其中一個，不然會直接出局(喝自己的酒)，當總數超過350點後可以喊停，該數字就是你本場點數，等所有玩家骰完就以點數高低比較輸贏，最低點數的為輸家，結算時若有玩家500點以上x2倍，600點以上x3倍，全骰開x4倍，乘法都累計上去計算。',
-            category: 'dice'
+            category: 'dice',
+            ease: 2,
+            alcohol: 3,
+            players: '<4'
         },
         {
             id: 'game3',
             title: '十五二十',
             description: '兩人同時伸手出指（雙手能出的數字為0、5、10），口中喊一個數字（雙方出指數字之和，0、5、10、15、20）。<br>如果喊的數字和實際出的手指數相同，就贏，輸的人罰喝酒。兩人都喊中就繼續。',
-            category: 'no-prop'
+            category: 'no-prop',
+            ease: 2,
+            alcohol: 2,
+            players: 2
+        },
+        {
+            id: 'game30',
+            title: '十五二十-多人',
+            description: 
+                         '1. 每個人同時伸出一隻手，能出的數字只有0或5。<br>' +
+                         '2. 每回合有一個莊家，莊家喊一個數字，這個數字應該是所有玩家伸出手指數的總和，可能的數字包括0、5、10、15、20。<br>' +
+                         '3. 如果莊家喊的數字和實際出的手指數相同，莊家的下一個人喝酒。<br>' +
+                         '4. 如果莊家連續喊中兩次，則莊家的上下兩個人都要喝酒。<br>' +
+                         '5. 如果莊家連續喊中三次，則除了莊家以外的所有人都要喝酒。<br>' +
+                         '6. 如果莊家沒有喊中，則下一個人當莊家，遊戲繼續。',
+            category: 'no-prop',
+            ease: 2,
+            alcohol: 2,
+            players: '>2'
         },
         {
             id: 'game4',
@@ -68,9 +93,16 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 'game12',
-            title: '骰子玩法',
-            description: '兩人各有5個骰子。<br>搖骰子後，骰到1的放在對方骰盅裡，骰到6的拿出來放一旁。<br>最後骰盅裡有剩骰子的人贏，沒有剩的輸了要喝酒。',
-            category: 'dice'
+            title: '表面張力',
+            description: '1. 由第一位玩家開始做莊家。<br>' +
+                         '2. 莊家需要將酒倒入酒杯中，可以倒多或倒少。<br>' +
+                         '3. 倒酒完畢後，換下一位玩家繼續倒酒。<br>' +
+                         '4. 如果任何玩家在倒酒的過程中讓酒流出一滴在酒杯外，該玩家必須喝完這杯酒。<br>' +
+                         '5. 遊戲持續進行，直到所有人都輪流倒過酒。',
+            category: 'no-prop',
+            ease: 1,
+            alcohol: 4,
+            players: '<5'
         },
         {
             id: 'game13',
@@ -185,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const listItem = document.createElement('li');
         const link = document.createElement('a');
         link.href = `#${game.id}`;
-        link.textContent = game.title;
+        link.innerHTML = game.recommended ? '<span class="recommended-star">★</span> ' + game.title : game.title; // 添加星號
         listItem.appendChild(link);
 
         // 根據遊戲分類將遊戲添加到相應的部分
@@ -199,19 +231,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const gameSection = document.createElement('section');
         gameSection.id = game.id;
+        
+        // 如果推薦，添加星號
+        const star = game.recommended ? '<span class="recommended-star">★</span>' : '';
+        
         gameSection.innerHTML = `
-            <h2>${game.title}</h2>
+            <h2>${star}${game.title}</h2>
+            <div class="game-ratings">
+                <div class="game-rating">簡易度: ${game.ease}</div>
+                <div class="game-rating">酒量: ${game.alcohol}</div>
+                <div class="game-rating">適合人數: ${game.players}</div>
+            </div>
             <p>${game.description}</p>
         `;
         gameDetails.appendChild(gameSection);
     });
-
-    function loadGameDetails(game) {
-        gameDetails.innerHTML = `
-            <section id="${game.id}">
-                <h2>${game.title}</h2>
-                <p>${game.description}</p>
-            </section>
-        `;
-    }
 });
