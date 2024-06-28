@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>調酒指南</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* 保持原來的背景色 */
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2c3e50; /* 深藍色 */
+            color: #ffffff;
+            padding: 2em 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        header nav a {
+            color: #f39c12; /* 金色 */
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-left: 15px;
+        }
+
+        main {
+            padding: 2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cocktail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2em;
+            padding: 1em;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cocktail img {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            margin-right: 1em;
+        }
+
+        .cocktail h2 {
+            color: #2980b9; /* 藍色 */
+            font-weight: 600;
+        }
+
+        .cocktail-details {
+            flex: 1;
+        }
+
+        .cocktail h3 {
+            color: #2c3e50; /* 深藍色 */
+            font-weight: 500;
+            margin-top: 0.5em;
+        }
+
+        footer {
+            background-color: #2c3e50; /* 深藍色 */
+            color: #ffffff;
+            text-align: center;
+            padding: 1em 0;
+            position: relative;
+            width: 100%;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>調酒指南</h1>
+        <nav>
+            <a href="index.html" class="nav-link">返回首頁</a>
+        </nav>
+    </header>
+    <main>
+        <section id="cocktail-guide">
+            <div class="cocktail">
+                <img src="images/margarita.jpg" alt="瑪格麗特">
+                <div class="cocktail-details">
+                    <h2>瑪格麗特</h2>
+                    <h3>材料</h3>
+                    <p>龍舌蘭酒、檸檬汁、橙味利口酒</p>
+                    <h3>比例</h3>
+                    <p>2:1:1</p>
+                </div>
+            </div>
+            <div class="cocktail">
+                <img src="images/martini.jpg" alt="馬丁尼">
+                <div class="cocktail-details">
+                    <h2>馬丁尼</h2>
+                    <h3>材料</h3>
+                    <p>琴酒、苦艾酒、橄欖</p>
+                    <h3>比例</h3>
+                    <p>5:1</p>
+                </div>
+            </div>
+            <!-- 可以複製以上 div，修改內容來添加更多調酒介紹 -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 調酒指南. 保留所有權利。</p>
+    </footer>
+</body>
+</html>
