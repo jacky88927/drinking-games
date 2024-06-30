@@ -135,6 +135,35 @@ document.addEventListener('DOMContentLoaded', function() {
             interaction: true
         },
         {
+            id: 'game54',
+            title: '比大小',
+            description: `
+                <ol>
+                    <li>開局時喊“開”，所有玩家將骰盅打開，並檢查彼此的牌。</li>
+                    <li>檢查後選定欲重骰的骰子（數量任意）放回骰盅，等待所有人準備完成。</li>
+                    <li>全部玩家準備完成後一起重骰，骰後開牌比大小，最小者為輸家。</li>
+                    <li>牌型大小依照傳統撲克牌規則，由小至大依序如下：
+                        <ul>
+                            <li>散牌（無法組成以上任一牌型的雜牌）</li>
+                            <li>一對（由兩個相同數字的骰子和另三個無法組成牌型的雜牌組成）</li>
+                            <li>兩對（兩對數字相同但兩兩不同的骰子和一張雜牌組成）</li>
+                            <li>三條（由三個相同數字和兩個不同數字的骰子組成）</li>
+                            <li>順子（1、2、3、4、5或是2、3、4、5、6）</li>
+                            <li>同花（牌面為全黑或是全紅，但通常不玩同花，可自行決定）</li>
+                            <li>葫蘆（由三個相同數字及任何兩個其他相同數字所組成）</li>
+                            <li>四條（其中四個相同數字與一個其他數字所組成）</li>
+                            <li>五條（五個同樣數字所組成）</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>教學影片: <a href="https://youtu.be/TaiNo8LcPLU?si=l0dswZ1oYsgurJI2&t=572" target="_blank">觀看教學影片</a></p>`,
+            category: 'dice',
+            ease: 2,
+            alcohol: 4,
+            players: '>2',
+            recommended: true
+        },        
+        {
             id: 'game36',
             title: '三合一',
             description: `
@@ -184,9 +213,14 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             id: 'game17',
             title: '九宮格',
-            description: `準備九個杯子和兩個骰子，骰到多少就在對應的杯子加酒。
-            <br>下一個人骰到的喝掉，如果連線三杯都要喝。
-            <br>骰到11和12當1，骰到10當2。`,
+            description: `
+                <ol>
+                    <li>準備九個杯子和兩個骰子。</li>
+                    <li>骰到多少就在對應的杯子加酒。</li>
+                    <li>下一個人骰到的喝掉，如果連線三杯都要喝。</li>
+                    <li>骰到11和12當1，骰到10當2。</li>
+                </ol>
+            `,
             category: 'dice',
             ease: 1,
             alcohol: 4,
@@ -307,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function() {
             interaction: false
         },
         {
-            id: 'game53',
+            id: 'game51',
             title: '攏總來',
             description: `
                 <ol>
@@ -535,7 +569,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alcohol: 4,
             players: '>2',
             recommended: true,
-            interaction: false
+            interaction: true
         },
         {
             id: 'game29',
@@ -559,7 +593,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alcohol: 3,
             players: '>2',
             recommended: true,
-            interaction: false
+            interaction: true
         },
         {
             id: 'game42',
@@ -661,7 +695,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alcohol: 2,
             players: '>4',
             recommended: false,
-            interaction: false
+            interaction: true
         },
         {
             id: 'game11',
@@ -674,7 +708,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alcohol: 1,
             players: '>3',
             recommended: false,
-            interaction: false
+            interaction: true
         },
         {
             id: 'game14',
@@ -719,7 +753,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alcohol: 3,
             players: '>2',
             recommended: true,
-            interaction: false
+            interaction: true
         },        
         {
             id: 'game25',
@@ -734,7 +768,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alcohol: 3,
             players: '>3',
             recommended: true,
-            interaction: false
+            interaction: true
         },        
         {
             id: 'game3',
@@ -765,7 +799,25 @@ document.addEventListener('DOMContentLoaded', function() {
             alcohol: 2,
             players: '>2',
             recommended: true,
-            interaction: false
+            interaction: true
+        },
+        {
+            id: 'game52',
+            title: '數手指',
+            description: `
+                <ol>
+                    <li>所有人手握在一起，大拇指在最上面。</li>
+                    <li>莊家喊數字的瞬間，所有玩家選擇是否立起大拇指。</li>
+                    <li>如果立起大拇指的數量與莊家喊得數字相同，則下家喝，且莊家繼續喊。</li>
+                    <li>若沒喊中，則換下家當莊。</li>
+                </ol>
+                <p>教學影片: <a href="https://youtu.be/gk83e42_r38?si=ioiCbZi-BZBC7JgD&t=55" target="_blank">觀看教學影片</a></p>
+            `,
+            category: 'no-prop',
+            ease: 2,
+            alcohol: 3,
+            players: '<6',
+            recommended: true
         },
         {
             id: 'game4',
@@ -805,7 +857,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alcohol: 2,
             players: '>4',
             recommended: false,
-            interaction: false
+            interaction: true
         },
         {
             id: 'game28',
@@ -933,7 +985,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alcohol: 3,
             players: '>4',
             recommended: false,
-            interaction: false
+            interaction: true
         },
         {
             id: 'game47',

@@ -44,17 +44,19 @@
 
         .cocktail {
             display: flex;
-            align-items: center;
-            margin-bottom: 2em;
+            align-items: flex-start;
+            margin-bottom: 3em;
             padding: 1em;
             border-radius: 8px;
             background-color: #ffffff;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
         }
 
         .cocktail img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            max-width: 300px;
+            height: auto;
             border-radius: 8px;
             margin-right: 1em;
         }
@@ -62,6 +64,7 @@
         .cocktail h2 {
             color: #2980b9; /* 藍色 */
             font-weight: 600;
+            margin-top: 0;
         }
 
         .cocktail-details {
@@ -69,9 +72,44 @@
         }
 
         .cocktail h3 {
-            color: #2c3e50; /* 深藍色 */
+            color: #2980b9; /* 藍色 */
             font-weight: 500;
-            margin-top: 0.5em;
+            margin-top: 1em;
+            font-size: 1.2em;
+        }
+
+        .cocktail p {
+            margin: 0.5em 0;
+            font-size: 1em;
+        }
+
+        .cocktail .ingredients, .cocktail .proportion, .cocktail .alcohol-content, .cocktail .base-spirit {
+            margin: 1em 0;
+        }
+
+        .cocktail .ingredients h3, .cocktail .proportion h3, .cocktail .alcohol-content h3, .cocktail .base-spirit h3 {
+            font-size: 1.1em;
+            color: #2980b9; /* 藍色 */
+            margin-bottom: 0.5em;
+        }
+
+        .cocktail .description {
+            margin-top: 1em;
+            font-size: 1em;
+            color: #555555;
+        }
+
+        @media (max-width: 600px) {
+            .cocktail {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cocktail img {
+                margin-right: 0;
+                margin-bottom: 1em;
+                width: 100%;
+            }
         }
 
         footer {
@@ -83,6 +121,7 @@
             width: 100%;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
+
     </style>
 </head>
 <body>
@@ -95,23 +134,128 @@
     <main>
         <section id="cocktail-guide">
             <div class="cocktail">
-                <img src="images/margarita.jpg" alt="瑪格麗特">
+                <img src="images/screwdriver.jpg" alt="螺絲起子">
                 <div class="cocktail-details">
-                    <h2>瑪格麗特</h2>
-                    <h3>材料</h3>
-                    <p>龍舌蘭酒、檸檬汁、橙味利口酒</p>
-                    <h3>比例</h3>
-                    <p>2:1:1</p>
+                    <h2>螺絲起子</h2>
+                    <div class="ingredients">
+                        <h3>材料</h3>
+                        <p>伏特加、柳橙汁</p>
+                    </div>
+                    <div class="proportion">
+                        <h3>比例</h3>
+                        <p>1:4</p>
+                    </div>
+                    <div class="alcohol-content">
+                        <h3>酒精濃度</h3>
+                        <p>3/5</p>
+                    </div>
+                    <div class="base-spirit">
+                        <h3>基酒類型</h3>
+                        <p>伏特加</p>
+                    </div>
+                    <div class="description">
+                        <p>螺絲起子是一款簡單而經典的雞尾酒，適合任何場合。使用新鮮的柳橙汁可以提升風味。</p>
+                    </div>
                 </div>
             </div>
             <div class="cocktail">
-                <img src="images/martini.jpg" alt="馬丁尼">
+                <img src="images/whiskey_cola.jpg" alt="威士忌可樂">
                 <div class="cocktail-details">
-                    <h2>馬丁尼</h2>
-                    <h3>材料</h3>
-                    <p>琴酒、苦艾酒、橄欖</p>
-                    <h3>比例</h3>
-                    <p>5:1</p>
+                    <h2>威士忌可樂</h2>
+                    <div class="ingredients">
+                        <h3>材料</h3>
+                        <p>威士忌、可樂</p>
+                    </div>
+                    <div class="proportion">
+                        <h3>比例</h3>
+                        <p>1:5</p>
+                    </div>
+                    <div class="alcohol-content">
+                        <h3>酒精濃度</h3>
+                        <p>4/5</p>
+                    </div>
+                    <div class="base-spirit">
+                        <h3>基酒類型</h3>
+                        <p>威士忌</p>
+                    </div>
+                    <div class="description">
+                        <p>威士忌可樂是一款簡單而受歡迎的飲品，適合在派對上享用。可根據個人口味調整威士忌的比例。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cocktail">
+                <img src="images/ume_green_tea.jpg" alt="梅子綠茶">
+                <div class="cocktail-details">
+                    <h2>梅子綠茶</h2>
+                    <div class="ingredients">
+                        <h3>材料</h3>
+                        <p>梅酒、無糖綠茶</p>
+                    </div>
+                    <div class="proportion">
+                        <h3>比例</h3>
+                        <p>1:1</p>
+                    </div>
+                    <div class="alcohol-content">
+                        <h3>酒精濃度</h3>
+                        <p>2/5</p>
+                    </div>
+                    <div class="base-spirit">
+                        <h3>基酒類型</h3>
+                        <p>梅酒</p>
+                    </div>
+                    <div class="description">
+                        <p>梅子綠茶是一款清新且健康的飲品，適合夏日飲用。可以添加冰塊來增加清涼感。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cocktail">
+                <img src="images/ume_green_tea.jpg" alt="乳酸莓果">
+                <div class="cocktail-details">
+                    <h2>乳酸莓果</h2>
+                    <div class="ingredients">
+                        <h3>材料</h3>
+                        <p>伏特加、葡萄汁、蔓越莓汁、可爾必思原味乳酸菌發酵乳</p>
+                    </div>
+                    <div class="proportion">
+                        <h3>比例</h3>
+                        <p>1:2:2:0.25</p>
+                    </div>
+                    <div class="alcohol-content">
+                        <h3>酒精濃度</h3>
+                        <p>3/5</p>
+                    </div>
+                    <div class="base-spirit">
+                        <h3>基酒類型</h3>
+                        <p>伏特加</p>
+                    </div>
+                    <div class="description">
+                        <p>這款乳酸莓果雞尾酒結合了多種水果的風味，並以可爾必思增加奶香，味道獨特。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cocktail">
+                <img src="images/ume_green_tea.jpg" alt="芭樂檸檬青茶">
+                <div class="cocktail-details">
+                    <h2>芭樂檸檬青茶</h2>
+                    <div class="ingredients">
+                        <h3>材料</h3>
+                        <p>琴酒、芭樂檸檬青茶</p>
+                    </div>
+                    <div class="proportion">
+                        <h3>比例</h3>
+                        <p>1:4</p>
+                    </div>
+                    <div class="alcohol-content">
+                        <h3>酒精濃度</h3>
+                        <p>2/5</p>
+                    </div>
+                    <div class="base-spirit">
+                        <h3>基酒類型</h3>
+                        <p>琴酒</p>
+                    </div>
+                    <div class="description">
+                        <p>推薦全家的芭樂檸檬青茶，搭配琴酒風味獨特且清新。</p>
+                    </div>
                 </div>
             </div>
             <!-- 可以複製以上 div，修改內容來添加更多調酒介紹 -->

@@ -26,6 +26,33 @@ header p {
     margin: 0.5em 0 0;
 }
 
+header nav {
+    margin-top: 1em;
+}
+
+header nav a {
+    display: inline-block;
+    color: #ffffff;
+    background-color: #3b5998; /* Darker and more distinct shade of blue */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header nav a:hover {
+    background-color: #2e4272; /* Slightly darker shade for hover state */
+    color: #f1c40f; /* Bright yellow color for hover state */
+}
+
+header nav .nav-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
 main {
     padding: 2em;
     max-width: 1200px;
@@ -188,19 +215,12 @@ a {
     background-color: #1E90FF;
     border: none;
     color: white;
-    padding: 8px 15px; /* 調整內邊距 */
+    padding: 10px 20px;
     margin: 5px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 0.9em; /* 調整字體大小 */
+    font-size: 1em;
     transition: background-color 0.3s ease, transform 0.2s;
-}
-
-@media (max-width: 600px) {
-    .filter-btn {
-        font-size: 0.8em; /* 手機上更小的字體大小 */
-        padding: 8px 10px; /* 手機上更小的內邊距 */
-    }
 }
 
 .filter-btn:hover {
