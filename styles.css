@@ -28,7 +28,7 @@ header p {
 
 main {
     padding: 2em;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -36,32 +36,44 @@ h2 {
     color: #1E90FF;
     border-bottom: 2px solid #1E90FF;
     padding-bottom: 0.3em;
-    margin-top: 0.5em; 
+    margin-top: 0.5em;
     font-weight: 600;
 }
 
+.category-title {
+    margin-top: 2em;
+    font-size: 1.8em;
+    color: #1E90FF;
+    border-bottom: 2px solid #1E90FF;
+    padding-bottom: 0.3em;
+}
+
 .game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1em;
     list-style-type: none;
     padding: 0;
     margin: 1em 0;
 }
 
 .game-list li {
-    margin: 1em 0;
+    background-color: #ffffff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.game-list li:hover {
+    background-color: #e3f2fd;
+    transform: scale(1.05);
 }
 
 .game-list a {
     text-decoration: none;
     color: #1E90FF;
     font-weight: 600;
-    display: block;
-    padding: 0.5em;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.game-list a:hover {
-    background-color: #e3f2fd;
 }
 
 section {
@@ -75,12 +87,13 @@ section {
 .game-ratings {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 0.3em; 
 }
 
 .game-rating {
     font-weight: 600;
-    color: #FF6347; 
+    color: #FF6347; /* 番茄紅色 */
 }
 
 footer {
