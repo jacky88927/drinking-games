@@ -188,12 +188,19 @@ a {
     background-color: #1E90FF;
     border: none;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 15px; /* 調整內邊距 */
     margin: 5px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 0.9em; /* 調整字體大小 */
     transition: background-color 0.3s ease, transform 0.2s;
+}
+
+@media (max-width: 600px) {
+    .filter-btn {
+        font-size: 0.8em; /* 手機上更小的字體大小 */
+        padding: 8px 10px; /* 手機上更小的內邊距 */
+    }
 }
 
 .filter-btn:hover {
