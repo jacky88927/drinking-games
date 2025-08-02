@@ -1,71 +1,335 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>超過50種好玩的「喝酒遊戲」推薦清單!骰子、撲克牌、無須任何道具都可以快速買醉! 全網最齊全</title>
-        <meta name="keywords" content="喝酒遊戲, 派對喝酒遊戲, 骰子喝酒遊戲, 撲克牌喝酒遊戲, 不用道具喝酒遊戲, 快速喝酒">
-        <meta name="description" content="超過 50 種最受歡迎的喝酒遊戲，包括骰子遊戲、撲克牌遊戲及最快買醉的遊戲，適合任何派對場合！">
-        <link rel="stylesheet" href="styles.css">
-        <link rel="icon" href="beer.png" type="image/x-icon">
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超過50種好玩的「喝酒遊戲」推薦清單 | 派對遊戲專家</title>
+    <meta name="keywords" content="喝酒遊戲, 派對喝酒遊戲, 骰子喝酒遊戲, 撲克牌喝酒遊戲, 不用道具喝酒遊戲, 快速喝酒">
+    <meta name="description" content="超過 50 種最受歡迎的喝酒遊戲，包括骰子遊戲、撲克牌遊戲及最快買醉的遊戲，適合任何派對場合！">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="beer.png" type="image/x-icon">
 </head>
 <body>
+    <!-- 導航列 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-logo">
+                <a href="#">
+                    <i class="fas fa-beer"></i> 派對遊戲專家
+                </a>
+            </div>
+            <div class="navbar-search">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="搜尋遊戲..." aria-label="搜尋遊戲">
+                    <button id="search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="navbar-toggle" id="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="#dice-games-section">骰子遊戲</a></li>
+                <li><a href="#card-games-section">撲克牌遊戲</a></li>
+                <li><a href="#no-prop-games-section">無道具遊戲</a></li>
+                <li><a href="#tools-section">派對工具</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 英雄區塊 -->
     <header class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">🍻最強派對喝酒遊戲🍻</h1>
-            <p class="hero-subtitle">超過 50 種簡單又好玩的遊戲，沒有任何道具也能玩！</p>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">尋找最適合的派對喝酒遊戲</h1>
+                <p class="hero-subtitle">超過 50 種遊戲適合所有場合，從 2 人小酌到大型派對都能找到最適合的選擇！</p>
+                <div class="hero-cta">
+                    <button id="random-game-btn" class="btn btn-primary"><i class="fas fa-random"></i> 隨機推薦遊戲</button>
+                    <button id="open-tools-btn" class="btn btn-secondary"><i class="fas fa-dice"></i> 派對小工具</button>
+                </div>
+            </div>
         </div>
     </header>
-    <main>
-        <div id="filter-buttons" class="filter-buttons">
-            <button class="filter-btn" onclick="filterGames('all')">所有遊戲</button>
-            <button class="filter-btn" onclick="filterGames('quick-drinking')">快速喝酒</button>
-            <button class="filter-btn" onclick="filterGames('high-interaction')">高參與度</button>
-            <button class="filter-btn" onclick="filterGames('dice-roller')">骰子模擬器</button> <!-- 新增按鈕 -->
-        </div>
-        
-        <div id="dice-roller">
-            <h2>骰子模擬器</h2>
-            <label for="dice-count">選擇骰子數量：</label>
-            <input type="number" id="dice-count" value="1" min="1" max="10">
-            <button id="roll-dice" class="filter-btn">丟骰子</button>
-            <div id="dice-results"></div>
-        </div>
-        <section id="dice-games-section">
-            <h2>
-                <span class="icon dice-icon"></span> 骰子遊戲
-            </h2>
-            <ul id="dice-games" class="game-list"></ul>
+
+    <main class="container">
+        <!-- 快速篩選區 -->
+        <section class="quick-filters">
+            <h2><i class="fas fa-filter"></i> 快速篩選</h2>
+            <div class="filter-tags">
+                <div class="filter-group">
+                    <h3>遊戲類型</h3>
+                    <div class="tags">
+                        <button class="tag active" data-filter="all">所有遊戲</button>
+                        <button class="tag" data-filter="dice">骰子遊戲</button>
+                        <button class="tag" data-filter="card">撲克牌遊戲</button>
+                        <button class="tag" data-filter="no-prop">無道具遊戲</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h3>適合場合</h3>
+                    <div class="tags">
+                        <button class="tag" data-filter="quick-drinking">快速喝酒</button>
+                        <button class="tag" data-filter="high-interaction">高互動性</button>
+                        <button class="tag" data-filter="beginner">新手友好</button>
+                        <button class="tag" data-filter="party-favorite">派對首選</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h3>人數</h3>
+                    <div class="tags">
+                        <button class="tag" data-filter="players-2">2人</button>
+                        <button class="tag" data-filter="players-small">3-5人</button>
+                        <button class="tag" data-filter="players-medium">6-10人</button>
+                        <button class="tag" data-filter="players-large">10人以上</button>
+                    </div>
+                </div>
+            </div>
         </section>
-        
-        <section id="card-games-section">
-            <h2>
-                <span class="icon card-icon"></span> 撲克牌遊戲
-            </h2>
-            <ul id="card-games" class="game-list"></ul>
+
+        <!-- 遊戲瀏覽區 -->
+        <section class="games-browser">
+            <div class="games-container">
+                <!-- 左側遊戲列表 -->
+                <div class="games-list-container">
+                    <div class="games-list-header">
+                        <h2><i class="fas fa-list"></i> 遊戲列表</h2>
+                        <div class="view-controls">
+                            <button id="grid-view-btn" class="view-btn active"><i class="fas fa-th"></i></button>
+                            <button id="list-view-btn" class="view-btn"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                    <div class="games-list" id="games-list">
+                        <!-- 遊戲列表將由 JavaScript 動態生成 -->
+                        <!-- 下方為範例格式 -->
+                        <div class="game-card" data-id="game1">
+                            <div class="game-card-header">
+                                <h3>國王遊戲</h3>
+                                <span class="recommended-tag"><i class="fas fa-star"></i> 熱門</span>
+                            </div>
+                            <div class="game-card-body">
+                                <div class="game-tags">
+                                    <span class="game-tag">撲克牌</span>
+                                    <span class="game-tag">高互動</span>
+                                </div>
+                                <div class="game-metrics">
+                                    <div class="metric">
+                                        <i class="fas fa-users"></i>
+                                        <span>4-20人</span>
+                                    </div>
+                                    <div class="metric">
+                                        <i class="fas fa-wine-glass"></i>
+                                        <span>酒量: 中等</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右側遊戲詳情 -->
+                <div class="game-details-container" id="game-details-container">
+                    <div class="game-details-placeholder" id="game-details-placeholder">
+                        <i class="fas fa-hand-point-left"></i>
+                        <h3>選擇一個遊戲開始</h3>
+                        <p>從左側列表中選擇一個遊戲來查看詳細規則</p>
+                    </div>
+                    <div class="game-details" id="game-details">
+                        <!-- 遊戲詳情將由 JavaScript 動態生成 -->
+                    </div>
+                </div>
+            </div>
         </section>
-        
-        <section id="no-prop-games-section">
-            <h2>
-                <span class="icon no-prop-icon"></span> 不用道具遊戲
-            </h2>
-            <ul id="no-prop-games" class="game-list"></ul>
+
+        <!-- 工具區塊 -->
+        <section id="tools-section" class="tools-section">
+            <h2><i class="fas fa-tools"></i> 派對小工具</h2>
+            
+            <div class="tools-container">
+                <!-- 骰子模擬器 -->
+                <div class="tool-card" id="dice-simulator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-dice"></i> 骰子模擬器</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="tool-controls">
+                            <div class="control-group">
+                                <label for="dice-count">骰子數量:</label>
+                                <div class="number-input">
+                                    <button class="decrease">-</button>
+                                    <input type="number" id="dice-count" min="1" max="10" value="2">
+                                    <button class="increase">+</button>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="dice-sides">骰子面數:</label>
+                                <select id="dice-sides">
+                                    <option value="6" selected>六面骰</option>
+                                    <option value="10">十面骰</option>
+                                    <option value="20">二十面骰</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button id="roll-dice-btn" class="btn btn-primary"><i class="fas fa-dice"></i> 擲骰子</button>
+                        <div class="dice-results" id="dice-results">
+                            <!-- 骰子結果將由 JavaScript 動態生成 -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 喝酒計時器 -->
+                <div class="tool-card" id="drinking-timer">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-stopwatch"></i> 喝酒計時器</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="timer-display">
+                            <div class="timer-circle">
+                                <div class="timer-time" id="timer-time">00:30</div>
+                                <svg class="timer-svg" width="160" height="160">
+                                    <circle class="timer-bg" r="70" cx="80" cy="80"></circle>
+                                    <circle class="timer-progress" id="timer-progress" r="70" cx="80" cy="80"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="timer-controls">
+                            <div class="control-group">
+                                <label for="timer-duration">時間 (秒):</label>
+                                <div class="number-input">
+                                    <button class="decrease">-</button>
+                                    <input type="number" id="timer-duration" min="5" max="300" value="30">
+                                    <button class="increase">+</button>
+                                </div>
+                            </div>
+                            <div class="timer-buttons">
+                                <button id="timer-start-btn" class="btn btn-primary"><i class="fas fa-play"></i> 開始</button>
+                                <button id="timer-reset-btn" class="btn btn-secondary"><i class="fas fa-redo"></i> 重置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 隨機隊伍分配器 -->
+                <div class="tool-card" id="team-generator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-users"></i> 隊伍分配器</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="control-group">
+                            <label for="player-names">參與者名單 (逗號分隔):</label>
+                            <textarea id="player-names" placeholder="小明, 小華, 小菁..."></textarea>
+                        </div>
+                        <div class="control-group">
+                            <label for="team-count">隊伍數量:</label>
+                            <div class="number-input">
+                                <button class="decrease">-</button>
+                                <input type="number" id="team-count" min="2" max="10" value="2">
+                                <button class="increase">+</button>
+                            </div>
+                        </div>
+                        <button id="generate-teams-btn" class="btn btn-primary"><i class="fas fa-random"></i> 隨機分隊</button>
+                        <div class="teams-result" id="teams-result">
+                            <!-- 隊伍結果將由 JavaScript 動態生成 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="game-details"></section>
     </main>
+
+    <!-- 底部導航與訂閱 -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>聯絡我們</h4>
-                <p>Email: jacky88927@gmail.com</p>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-newsletter">
+                    <h3>訂閱最新遊戲更新</h3>
+                    <p>獲取最新的派對遊戲和獨家內容</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" placeholder="您的電子郵件" required>
+                        <button type="submit" class="btn btn-primary">訂閱</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h4>關於我們</h4>
+                        <p>派對遊戲專家致力於收集與分享最有趣的派對和喝酒遊戲，讓您的每一場聚會都更加精彩。</p>
+                    </div>
+                    <div class="footer-column">
+                        <h4>遊戲分類</h4>
+                        <ul>
+                            <li><a href="#dice-games-section">骰子遊戲</a></li>
+                            <li><a href="#card-games-section">撲克牌遊戲</a></li>
+                            <li><a href="#no-prop-games-section">無道具遊戲</a></li>
+                            <li><a href="#quick-drinking">快速喝酒遊戲</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>實用資源</h4>
+                        <ul>
+                            <li><a href="#tools-section">派對小工具</a></li>
+                            <li><a href="#">派對規劃指南</a></li>
+                            <li><a href="#">酒精安全指南</a></li>
+                            <li><a href="#">常見問題</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>聯絡我們</h4>
+                        <p><i class="fas fa-envelope"></i> Email: jacky88927@gmail.com</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 最強派對喝酒遊戲網頁. 保留所有權利。</p>
+            <div class="container">
+                <p>&copy; 2025 派對遊戲專家. 保留所有權利。請理性飲酒，酒後請勿駕車。</p>
+            </div>
         </div>
     </footer>
+
+    <!-- 回到頂部按鈕 -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 模態框 -->
+    <div class="modal" id="share-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>分享遊戲</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>分享「<span id="share-game-title"></span>」給朋友：</p>
+                <div class="share-buttons">
+                    <button class="share-btn facebook"><i class="fab fa-facebook"></i> Facebook</button>
+                    <button class="share-btn line"><i class="fab fa-line"></i> Line</button>
+                    <button class="share-btn copy-link"><i class="fas fa-link"></i> 複製連結</button>
+                </div>
+                <div class="copy-link-input">
+                    <input type="text" id="share-link" readonly>
+                    <button id="copy-link-btn">複製</button>
+                </div>
+                <div class="share-qrcode" id="share-qrcode"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript 引入 -->
     <script src="scripts.js"></script>
 </body>
 </html>
